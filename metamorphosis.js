@@ -11,7 +11,7 @@ const ui = {
     mixedCardsContainer: null,
     slots: null,
     cards: null,
-    images: null
+    emptySlots: null
 };
 
 const game = {
@@ -67,12 +67,14 @@ function initDropzone(dropzone) {
 function handleDragStart(e) {
     this.classList.add('highlight')
     game.dragged = e.currentTarget;
+    changeALLSlotsAppearance()
     console.log("Drag start of", game.dragged);
 }
 
 function handleDragEnd() {
     console.log("Drag end of", game.dragged);
     this.classList.remove('highlight')
+    restoreAllSlotsAppearance()
     game.dragged = null;
 }
 
@@ -81,15 +83,19 @@ function handleDragOver(e) {
 }
 
 function handleDragEnter(e) {
+    this.style.background = '#dda0dd'
+    this.style.border = '4px solid #da70d6'
     console.log("Drag enter of", e.currentTarget);
 }
 
 function handleDragLeave(e) {
+    changeALLSlotsAppearance()
     console.log("Drag leave of", e.currentTarget);
 }
 
 function handleDrop(e) {
     e.preventDefault();
+    restoreAllSlotsAppearance()
     const dropzone = e.currentTarget;
     console.log("Drop of", dropzone);
 
@@ -102,3 +108,27 @@ function handleDrop(e) {
 }
 
 initDragAndDrop();
+
+
+function changeALLSlotsAppearance() {
+    ui.emptySlots = document.querySelectorAll(".card-slot:empty");
+    ui.emptySlots.forEach(function(slot){
+        changeAppearance(slot)
+    })
+}
+
+function changeAppearance(slot) {
+    slot.style.background = '#ffb6c1'
+    slot.style.border = '4px solid #db7093'
+}
+
+function restoreAllSlotsAppearance() {
+    ui.emptySlots = document.querySelectorAll(".card-slot:empty");
+    ui.emptySlots.forEach(function(slot){
+        restoreAppearance(slot)
+    })
+}
+
+function restoreAppearance(slot) {
+    slot.removeAttribute('style')
+}
