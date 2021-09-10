@@ -11,6 +11,7 @@ const ui = {
     mixedCardsContainer: null,
     slots: null,
     cards: null,
+    images: null
 };
 
 const game = {
@@ -63,14 +64,15 @@ function initDropzone(dropzone) {
     dropzone.addEventListener("dragleave", handleDragLeave);
     dropzone.addEventListener("drop", handleDrop);
 }
-
 function handleDragStart(e) {
+    this.classList.add('highlight')
     game.dragged = e.currentTarget;
     console.log("Drag start of", game.dragged);
 }
 
 function handleDragEnd() {
     console.log("Drag end of", game.dragged);
+    this.classList.remove('highlight')
     game.dragged = null;
 }
 
