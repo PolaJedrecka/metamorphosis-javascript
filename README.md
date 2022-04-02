@@ -1,6 +1,6 @@
 # Metamorphosis
 
-If you want to play puzzless click [*here*](https://polajedrecka.github.io/metamorphosis-javascript/)
+If you want to play puzzless click [*here*](https://polajedrecka.github.io/metamorphosis-javascript/).
 
 ## Story
 
