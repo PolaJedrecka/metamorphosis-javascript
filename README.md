@@ -1,5 +1,7 @@
 # Metamorphosis
 
+If you want to play puzzless click [*here*](https://polajedrecka.github.io/metamorphosis-javascript/)
+
 ## Story
 
 We have a great idea: programming is really fun but breeding frogs and butterflies is even more fun! :)
